@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import GreetingsReducer from './reducer_greetings';
+import PlansReducer from './reducer_plans';
 
 export default combineReducers({
-    greetings: GreetingsReducer
+    plans: PlansReducer
 });

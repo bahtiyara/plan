@@ -1,0 +1,45 @@
+/*---------- Title ----------*/
+.title{
+    margin-top: 80px;
+}
+
+.title-desc {
+    display: flex;
+    margin-top: 10px;
+}
+
+.title h3 {
+    color: #A19FA8;
+    display: inline-block;
+}
+
+.title i {
+    margin-left: 10px;
+    line-height: 28px;
+}
+
+.title-special-position {
+    margin-top: 0;
+    position: absolute;
+    top: 33.8%;
+}
+
+/*---------- Card ----------*/
+.card {
+    background: #FFFFFF;
+    box-shadow: 0 15px 30px 0 rgba(55,55,64,0.05);
+    border-radius: 10px;
+    margin: 30px 0;
+    padding: 20px 20px 20px 0;
+}
+
+.card h2 {
+    border-left: #05CE9D solid 6px;
+    padding-left: 14px;
+}
+
+.card p {
+    margin-top: 10px;
+    padding-left: 20px;
+    white-space: pre-wrap;
+}
