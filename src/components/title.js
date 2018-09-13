@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 
 class Title extends Component {
     render() {
-        const {title, desc, icon, titleSpecialPosition} = this.props;
+        const {title, desc, icon} = this.props;
         const iconName = `icon-${icon}`;
-        const className = titleSpecialPosition ? 'title title-special-position' : 'title'
-        return <div className={className}>
+        return <div className="title">
             <h1>{title}</h1>
             <div className="title-desc">
                 <h3>{desc}</h3>

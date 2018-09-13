@@ -32,145 +32,16 @@
 .icon-bin:before {
   content: "\e901";
 }
-.icon-loading-dark .path1:before {
-  content: "\e902";
-  color: rgb(255, 255, 255);
-  opacity: 0.27;
+
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
 }
-.icon-loading-dark .path2:before {
-  content: "\e903";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.27;
-}
-.icon-loading-dark .path3:before {
-  content: "\e904";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.27;
-}
-.icon-loading-dark .path4:before {
-  content: "\e905";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.27;
-}
-.icon-loading-dark .path5:before {
-  content: "\e906";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.27;
-}
-.icon-loading-dark .path6:before {
-  content: "\e907";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.27;
-}
-.icon-loading-dark .path7:before {
-  content: "\e908";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.37;
-}
-.icon-loading-dark .path8:before {
-  content: "\e909";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.46;
-}
-.icon-loading-dark .path9:before {
-  content: "\e90a";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.56;
-}
-.icon-loading-dark .path10:before {
-  content: "\e90b";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.66;
-}
-.icon-loading-dark .path11:before {
-  content: "\e90c";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.75;
-}
-.icon-loading-dark .path12:before {
-  content: "\e90d";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-  opacity: 0.85;
-}
-.icon-loading-light .path1:before {
-  content: "\e90e";
-  color: rgb(108, 108, 108);
-  opacity: 0.27;
-}
-.icon-loading-light .path2:before {
-  content: "\e90f";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.27;
-}
-.icon-loading-light .path3:before {
-  content: "\e910";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.27;
-}
-.icon-loading-light .path4:before {
-  content: "\e911";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.27;
-}
-.icon-loading-light .path5:before {
-  content: "\e912";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.27;
-}
-.icon-loading-light .path6:before {
-  content: "\e913";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.27;
-}
-.icon-loading-light .path7:before {
-  content: "\e914";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.37;
-}
-.icon-loading-light .path8:before {
-  content: "\e915";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.46;
-}
-.icon-loading-light .path9:before {
-  content: "\e916";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.56;
-}
-.icon-loading-light .path10:before {
-  content: "\e917";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.66;
-}
-.icon-loading-light .path11:before {
-  content: "\e918";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.75;
-}
-.icon-loading-light .path12:before {
-  content: "\e919";
-  margin-left: -1em;
-  color: rgb(108, 108, 108);
-  opacity: 0.85;
+
+.icon-loading-green {
+  background: url(/src/style/img/icon-loading-green.svg) no-repeat;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  animation: rotate 1s infinite linear;
 }

@@ -11,17 +11,16 @@ let numOfPlan;
 class PlanIndex extends Component {
     componentDidMount() {
         this.props.fetchPlans();
-        
     }
 
     render() {
         numOfPlan = _.size(this.props.plans);
+        const icon = this.props.plans==null ? 'loading-green' : 'add'
         return <div className="plan-index" >
             <Title
-                titleSpecialPosition={!hasPlan()}
-                title={printGreeting()} 
-                desc={printTitleDesc()}
-                icon="add" />
+                title={printTitle()}
+                desc={this.printSubtitle()}
+                icon={icon} />
             <ul className='card-list' >
                 {this.renderCard()}
             </ul>
@@ -30,16 +29,26 @@ class PlanIndex extends Component {
 
     renderCard() {
         return _.map(this.props.plans, (plan) => {
-            return <li className='card-list-item' key={plan._id}>
+            return <li className='card-list-item' key={plan.id}>
                 <Card
                     title={plan.title}
-                    body={plan.desc} />
+                    body={plan.content} />
             </li>;
         });
     }
+
+    printSubtitle() {
+        if (this.props.plans == null) {
+            return '稍等加载…';
+        }
+        if (numOfPlan == 0) {
+            return '你还没有任何计划，创建一个吧';
+        }
+        return `你有${numOfPlan}个未完成计划`;
+    }
 }
 
-function printGreeting() {
+function printTitle() {
     var date = new Date();
     var currentHour = date.getHours();
     if (currentHour >= 0 && currentHour < 5) {
@@ -54,27 +63,6 @@ function printGreeting() {
         return "下午好";
     } else {
         return "晚上好";
-    }
-}
-
-function printTitleDesc() {
-    switch (hasPlan()) {
-        case false:
-            return '你还没有任何计划，创建一个吧';
-        case true:
-            return `你有${numOfPlan}个未完成计划`;
-        default:
-            return '稍等加载…';
-    }
-}
-
-function hasPlan() {
-    if (numOfPlan == undefined) {
-        return undefined;
-    } else if (numOfPlan == 0) {
-        return false;
-    } else if (numOfPlan > 0) {
-        return true;
     }
 }
 

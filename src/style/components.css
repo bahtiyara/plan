@@ -18,12 +18,6 @@
     line-height: 28px;
 }
 
-.title-special-position {
-    margin-top: 0;
-    position: absolute;
-    top: 33.8%;
-}
-
 /*---------- Card ----------*/
 .card {
     background: #FFFFFF;
@@ -42,4 +36,8 @@
     margin-top: 10px;
     padding-left: 20px;
     white-space: pre-wrap;
+}
+
+.card p:empty {
+    margin-top: 0;
 }
