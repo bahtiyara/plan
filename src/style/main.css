@@ -5,4 +5,14 @@
 
 .card-list-item{
     list-style: none;
+    position: relative;
+}
+
+.circle-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -28px;
+    z-index: -1;
+    /* display: none; */
 }

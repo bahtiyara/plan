@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 import Title from '../components/title';
 import Card from '../components/card';
+import {CircleButton} from '../components/button';
 import {fetchPlans} from '../actions';
 
 let numOfPlan;
@@ -14,12 +15,13 @@ class PlanIndex extends Component {
     }
 
     render() {
-        numOfPlan = _.size(this.props.plans);
-        const icon = this.props.plans==null ? 'loading-green' : 'add'
+        const {plans} = this.props;
+        numOfPlan = _.size(plans);
+        const icon = plans == null ? 'loading-green' : 'add'
         return <div className="plan-index" >
             <Title
                 title={printTitle()}
-                desc={this.printSubtitle()}
+                subtitle={this.printSubtitle()}
                 icon={icon} />
             <ul className='card-list' >
                 {this.renderCard()}
@@ -33,6 +35,9 @@ class PlanIndex extends Component {
                 <Card
                     title={plan.title}
                     body={plan.content} />
+                <CircleButton
+                    icon='bin white'
+                    color='#FF5263' />
             </li>;
         });
     }

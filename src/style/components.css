@@ -41,3 +41,14 @@
 .card p:empty {
     margin-top: 0;
 }
+
+/*---------- Button ----------*/
+.circle-button {
+    border-radius: 100%;
+    background-color: #05CE9D;
+    display: inline-block;
+}
+
+.circle-button i {
+    padding: 16px;
+}
