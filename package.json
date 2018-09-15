@@ -4,7 +4,7 @@
   "description": "Boilderplate for react apps",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start": "webpack-dev-server --content-base public --mode development --open --hot",
     "build": "webpack --mode production"
   },
   "author": "Bahtiyar",
@@ -14,8 +14,10 @@
     "lodash": "^4.17.10",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-draggable": "^3.0.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "react-swipe": "^5.1.1",
     "redux": "^4.0.0",
     "redux-promise": "^0.6.0"
   },

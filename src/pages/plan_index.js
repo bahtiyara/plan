@@ -33,6 +33,7 @@ class PlanIndex extends Component {
         return _.map(this.props.plans, (plan) => {
             return <li className='card-list-item' key={plan.id}>
                 <Card
+                    swipeable
                     title={plan.title}
                     body={plan.content} />
                 <CircleButton
@@ -58,13 +59,13 @@ function printTitle() {
     var currentHour = date.getHours();
     if (currentHour >= 0 && currentHour < 5) {
         return "还没睡啊";
-    } else if (currentHour >= 5 && currentHour <= 10) {
+    } else if (currentHour >= 5 && currentHour <= 9) {
         return "早啊";
-    } else if (currentHour > 10 && currentHour < 12) {
+    } else if (currentHour > 9 && currentHour < 12) {
         return "上午更要打起精神哦";
-    } else if (currentHour >= 12 && currentHour < 14) {
+    } else if (currentHour >= 12 && currentHour < 13) {
         return "午饭吃了没";
-    } else if (currentHour >= 14 && currentHour < 18) {
+    } else if (currentHour >= 13 && currentHour < 18) {
         return "下午好";
     } else {
         return "晚上好";

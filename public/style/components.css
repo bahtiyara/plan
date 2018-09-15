@@ -36,6 +36,7 @@
     margin-top: 10px;
     padding-left: 20px;
     white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .card p:empty {

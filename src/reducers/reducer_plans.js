@@ -9,3 +9,12 @@ export default function (state = null, action) {
             return state;
     }
 }
+
+// export default function (state = null, action) {
+//     switch (action.type) {
+//         case FETCH_PLANS:
+//             return _.mapKeys(action.payload.data, '_id');
+//         default:
+//             return state;
+//     }
+// }
