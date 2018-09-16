@@ -39,7 +39,7 @@
 }
 
 .icon-loading-green {
-  background: url(/src/style/img/icon-loading-green.svg) no-repeat;
+  background: url(./img/icon-loading-green.svg) no-repeat;
   width: 24px;
   height: 24px;
   margin-top: 2px;

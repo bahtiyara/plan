@@ -22,7 +22,8 @@ class PlanIndex extends Component {
             <Title
                 title={printTitle()}
                 subtitle={this.printSubtitle()}
-                icon={icon} />
+                icon={icon}
+                onIconClick={() => this.props.history.push('/new')} />
             <ul className='card-list' >
                 {this.renderCard()}
             </ul>

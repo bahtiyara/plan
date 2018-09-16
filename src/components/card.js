@@ -28,15 +28,14 @@ class Card extends Component {
                 position={{x:this.state.XPosition, y:this.state.YPosition}}
                 axis="x">
                     <div className='card'>
-                        <h2>{title}</h2>
-                        <p>{body}</p>
+                        <h2 className='h2'>{title}</h2>
+                        <p className='p'>{body}</p>
                     </div>
             </Draggable>
         );
     }
 
     handleStart(event, data) {
-        console.log('Drag started');
         data.node.style.transition = '';
     }
 

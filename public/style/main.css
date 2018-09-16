@@ -16,3 +16,18 @@
     z-index: -1;
     /* display: none; */
 }
+
+/*---------- Plan New Page ----------*/
+.plan-new .title {
+    margin-top: 80px;
+    border-left: #05CE9D solid 6px;
+    padding: 0 20px 0 12px;
+    border-radius: 0;
+    width: 100%;
+}
+
+.plan-new .content {
+    margin-top: 10px;
+    width: 100%;
+    padding: 0 20px;
+}

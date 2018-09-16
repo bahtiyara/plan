@@ -14,7 +14,7 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 ReactDOM.render(<Provider store = {createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
         <Switch>
-            <Route path='/plan/new' component={PlanNew} />
+            <Route path='/new' component={PlanNew} />
             <Route path='/' component={PlanIndex} />
         </Switch>
     </BrowserRouter>
