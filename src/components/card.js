@@ -19,7 +19,7 @@ class Card extends Component {
             <Draggable
                 // allowAnyClick={true}
                 // cancel={'.plan-index'}
-                // bounds={{right: 0}}
+                bounds={{right: 0}}
                 disabled={canNotSwipe}
                 onStart={this.handleStart}
                 // onMouseDown={this.onMouseDown}
