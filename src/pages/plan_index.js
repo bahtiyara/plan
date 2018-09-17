@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import _ from 'lodash';
+import size from 'lodash/size';
+import map from 'lodash/map';
 
 import Title from '../components/title';
 import Card from '../components/card';
 import {CircleButton} from '../components/button';
-import {fetchPlans} from '../actions';
+import {fetchPlans, trashPlan} from '../actions';
 
 let numOfPlan;
 
 class PlanIndex extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            numOfPlan: Number
+        }
+    }
+
     componentDidMount() {
         this.props.fetchPlans();
     }
 
     render() {
         const {plans} = this.props;
-        numOfPlan = _.size(plans);
+        numOfPlan = size(plans);
         const icon = plans == null ? 'loading-green' : 'add'
         return <div className="plan-index" >
             <Title
@@ -29,15 +37,21 @@ class PlanIndex extends Component {
             </ul>
         </div>;
     }
-
+    
     renderCard() {
-        return _.map(this.props.plans, (plan) => {
+        return map(this.props.plans, (plan) => {
             return <li className='card-list-item' key={plan.id}>
                 <Card
                     swipeable
                     title={plan.title}
                     body={plan.content} />
                 <CircleButton
+                    onClick={(e) => {
+                        e.persist();
+                        this.props.trashPlan(plan.id, () => {
+                            e.target.parentElement.parentElement.remove();
+                        });
+                    }}
                     icon='bin white'
                     color='#FF5263' />
             </li>;
@@ -77,4 +91,4 @@ function mapStateToProps({plans}) {
     return {plans};
 }
 
-export default connect(mapStateToProps, {fetchPlans})(PlanIndex);
+export default connect(mapStateToProps, {fetchPlans, trashPlan})(PlanIndex);

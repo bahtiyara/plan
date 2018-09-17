@@ -99,7 +99,6 @@ class PlanNew extends Component {
             this.props.createPlan(this.state.title, this.state.content, () => {
                 this.props.history.push('/');
             });
-            console.log('You clicked 完成');
         }
     }
 }

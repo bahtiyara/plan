@@ -13,8 +13,12 @@
     right: 20px;
     top: 50%;
     margin-top: -28px;
-    z-index: -1;
     /* display: none; */
+}
+
+.card {
+    position: relative;
+    z-index: 1;
 }
 
 /*---------- Plan New Page ----------*/

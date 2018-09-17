@@ -10,6 +10,7 @@ const ROOT_URL = `http://106.14.173.210:92/appd/api.php?a=target&token=${token}&
 // const ROOT_URL = 'https://dani-api.herokuapp.com/';
 export const FETCH_PLANS = 'FETCH_PLANS';
 export const CREATE_PLAN = 'CREATE_PLAN';
+export const TRASH_PLAN = 'TRASH_PLAN';
 
 export function fetchPlans() {
     const request = axios.get(`${ROOT_URL}list`);
@@ -25,4 +26,12 @@ export function createPlan(title, content, callback) {
         type: CREATE_PLAN,
         payload: request
     };
+}
+
+export function trashPlan(id, callback) {
+    const request = axios.get(`${ROOT_URL}edit&id=${id}&status=-1`).then(() => callback());
+    return {
+        type: TRASH_PLAN,
+        payload: request
+    }
 }
