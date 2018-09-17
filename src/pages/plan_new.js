@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TextareaAutosize from 'react-autosize-textarea';
 import {Button} from '../components/button';
+import {createPlan} from '../actions';
+import {connect} from 'react-redux';
 
 class PlanNew extends Component {
     constructor(props) {
@@ -94,9 +96,12 @@ class PlanNew extends Component {
         if (buttonText == '下一步') {
             this.showAndFocus(e.target.parentNode.childNodes[1]);
         } else if (buttonText == '完成') {
+            this.props.createPlan(this.state.title, this.state.content, () => {
+                this.props.history.push('/');
+            });
             console.log('You clicked 完成');
         }
     }
 }
 
-export default PlanNew;
+export default connect(null, {createPlan})(PlanNew);

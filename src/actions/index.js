@@ -19,10 +19,10 @@ export function fetchPlans() {
     };
 }
 
-// export function fetchPlans() {
-//     const request = axios.get(ROOT_URL);
-//     return {
-//         type: FETCH_PLANS,
-//         payload: request
-//     };
-// }
+export function createPlan(title, content, callback) {
+    const request = axios.get(`${ROOT_URL}add&title=${title}&content=${content}`).then(() => callback());
+    return {
+        type: CREATE_PLAN,
+        payload: request
+    };
+}
