@@ -53,3 +53,20 @@
 .circle-button i {
     padding: 16px;
 }
+
+.button {
+    font-weight: 500;
+    padding: 14px 20px;
+    border: 0;
+    min-width: 96px;
+    border-radius: 100px;
+    display: block;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:empty {
+    display: none;
+}
