@@ -9,12 +9,14 @@ class PlanNew extends Component {
             title: '',
             content: '',
             contentHasFocus: false,
-            buttonState: ''
+            buttonText: ''
         };
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onContentChange = this.onContentChange.bind(this);
-        this.printButtonText = this.printButtonText.bind(this);
+        this.changeButtonText = this.changeButtonText.bind(this);
+        this.onContentChangeFocus = this.onContentChangeFocus.bind(this);
         this.onButtonClick = this.onButtonClick.bind(this);
+        this.onTitleKeyDown = this.onTitleKeyDown.bind(this);
     }
 
     render() {
@@ -27,33 +29,38 @@ class PlanNew extends Component {
                 placeholder='你的目标是什么？'
                 autoFocus />
             <TextareaAutosize
-                onBlur={() => this.setState({contentHasFocus: false})}
-                onFocus={() => this.setState({contentHasFocus: true})}
+                onBlur={this.onContentChangeFocus}
+                onFocus={this.onContentChangeFocus}
                 value={this.state.content}
                 onChange={this.onContentChange}
                 onKeyDown={this.onContentKeyDown}
                 className='content h3'
                 placeholder='为了达到此目标，你的计划是什么？'/>
             <Button
-                text={this.printButtonText()}
+                text={this.state.buttonText}
                 onClick={this.onButtonClick} />
         </div>;
     }
 
     onTitleChange(e) {
-        this.setState({title: e.target.value});
+        this.setState({title: e.target.value}, this.changeButtonText);
     }
 
     onContentChange(e) {
-        this.setState({content: e.target.value});
+        this.setState({content: e.target.value}, this.changeButtonText);
     }
 
     onTitleKeyDown(e) {
         if(e.key == 'Enter') {
             e.preventDefault();
-            e.target.nextSibling.style.display = 'inline-block';
-            e.target.nextSibling.focus();
+            this.showAndFocus(e.target.nextSibling);
         }
+    }
+
+    showAndFocus(target, display) {
+        const displayProp = display ? display : 'inline-block'
+        target.style.display = displayProp;
+        target.focus();
     }
 
     onContentKeyDown(e) {
@@ -63,25 +70,31 @@ class PlanNew extends Component {
         }
     }
 
-    printButtonText() {
-        if (this.state.title != '' && this.state.content == '' && !this.state.contentHasFocus) {
-            // this.setState({buttonState: 'next'});
-            return '下一步';
+    onContentChangeFocus(e) {
+        if (e.type == 'focus') {
+            this.setState({contentHasFocus: true}, this.changeButtonText);
+        } else {
+            this.setState({contentHasFocus: false}, this.changeButtonText);
         }
-        if (this.state.title != '' && this.state.content != '') {
-            // this.setState({buttonState: 'done'});
-            return '完成';
-        }
-        // this.setState({buttonState: ''});
-        return '';
     }
 
-    onButtonClick() {
-        switch (this.state.buttonState) {
-            case 'done':
-                console.log(`Uploading data, title:${this.state.title}, content:${this.state.content}`);
-            case 'next':
-                console.log('Button pressed, content input is shown and focused.');
+    changeButtonText() {
+        const {title, content, contentHasFocus} = this.state;
+        if (title != '' && content == '' && !contentHasFocus) {
+            this.setState({buttonText: '下一步'});
+        } else if (title != '' && content != '') {
+            this.setState({buttonText: '完成'});
+        } else {
+            this.setState({buttonText: ''});
+        }
+    }
+
+    onButtonClick(e) {
+        const {buttonText} = this.state;
+        if (buttonText == '下一步') {
+            this.showAndFocus(e.target.parentNode.childNodes[1]);
+        } else if (buttonText == '完成') {
+            console.log('You clicked 完成');
         }
     }
 }
